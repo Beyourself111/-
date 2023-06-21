@@ -1,0 +1,27 @@
+
+  <view class="container"  style="width: 748rpx; height: 823rpx; display: block; box-sizing: border-box">
+  <text style="position: relative; left: 172rpx; top: 63rpx">当前测得温度: {{temperature}} °C</text>
+  <view class="fan">
+    <text style="position: relative; left: 210rpx; top: 570rpx">风扇状态：{{fanStatus}}</text>
+  </view>
+  <view style="background: url('../../pages/tupian/2.jpg'); height: 1416rpx; width: 748rpx; display: block; box-sizing: border-box"></view>
+
+  <button bindtap="turnOnFan" style="position: relative; left: -4rpx; top: -629rpx">开启风扇</button>
+<button bindtap="turnOffFan" style="position: relative; left: 0rpx; top: -849rpx">关闭风扇</button>
+<radio-group class="radio-group" bindchange="radioChange">
+  <label style="display: flex; position: relative; left: 0rpx; top: -162rpx" wx:for="{{items}}" wx:key="{{item.name}}">
+    <radio value="{{item.name}}" checked="{{item.checked}}" />
+    {{item.value}}
+  </label>
+</radio-group>
+<input id="input" placeholder="输入所测温度" placeholder-style="font-size:15px; color:#bfbfbf;" style="font-weight: bolder; font-size: 15px; color: #000000; padding-left: 30rpx; position: absolute; left: 136rpx; top: 355rpx" bindinput="change" />
+<text id="text" style="position: absolute; left: 94rpx; top: 469rpx">提示：当目前温度异常时报警。单位：摄氏度</text>
+<button id="btn3" style="opacity: {{opacity}}; position: absolute; left: 146rpx; top: 535rpx" disabled="{{disabled}}" bindtap="send">点击查询所在地气温</button>
+<view>
+  <slider bindchange="sliderChange" value="{{ fanSpeed }}" min="0" max="100" style="position: relative; left: 0rpx; top: -727rpx"></slider>
+  <text style="position: relative; left: 263rpx; top: -1114rpx">风速：{{ fanSpeed }}</text>
+</view>
+
+</view>
+
+
